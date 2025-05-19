@@ -11,9 +11,9 @@ export const scrollToElement = (targetSelector: string, offset = 0): void => {
   // Check if Lenis is available on window object
   if (typeof window !== 'undefined') {
     // Access to the Lenis instance in window
-    const lenis = (window as any).lenis;
+    const lenis = (window as Window & { lenis?: unknown }).lenis;
     
-    if (lenis) {
+    if (lenis && typeof lenis === 'object' && lenis !== null && 'scrollTo' in lenis && typeof lenis.scrollTo === 'function') {
       lenis.scrollTo(targetElement, { offset });
     } else {
       // Fallback to native scrolling if Lenis is not available
@@ -28,8 +28,8 @@ export const scrollToElement = (targetSelector: string, offset = 0): void => {
  * 
  * @param lenisInstance - The Lenis instance
  */
-export const setGlobalLenisInstance = (lenisInstance: any): void => {
+export const setGlobalLenisInstance = (lenisInstance: unknown): void => {
   if (typeof window !== 'undefined') {
-    (window as any).lenis = lenisInstance;
+    (window as Window & { lenis?: unknown }).lenis = lenisInstance;
   }
 }; 

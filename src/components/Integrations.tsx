@@ -6,10 +6,9 @@ import Image from 'next/image';
 interface IntegrationItemProps {
   icon: React.ReactNode;
   name: string;
-  category: 'account' | 'blockchain';
 }
 
-const IntegrationItem: React.FC<IntegrationItemProps> = ({ icon, name, category }) => (
+const IntegrationItem: React.FC<IntegrationItemProps> = ({ icon, name }) => (
   <div className="flex items-center gap-3 p-4 bg-black/5 backdrop-blur-sm rounded-lg border border-green-200/20 hover:border-green-400/30 transition-all hover:shadow-md shadow-green-100/10 ">
     <div className="flex-shrink-0">
       {icon}
@@ -187,7 +186,6 @@ export default function Integrations() {
                   key={index}
                   name={integration.name}
                   icon={integration.icon}
-                  category="account"
                 />
               ))}
             </div>
@@ -210,7 +208,6 @@ export default function Integrations() {
                   key={index}
                   name={integration.name}
                   icon={integration.icon}
-                  category="blockchain"
                 />
               ))}
             </div>

@@ -19,18 +19,6 @@ const TokenAllocation: React.FC<TokenAllocationProps> = ({ name, percentage, col
   </div>
 );
 
-interface UtilityItemProps {
-  title: string;
-  description: string;
-}
-
-const UtilityItem: React.FC<UtilityItemProps> = ({ title, description }) => (
-  <div className="mb-4">
-    <h4 className="font-general font-medium text-base md:text-lg mb-1">{title}</h4>
-    <p className="font-general text-gray-600 text-sm md:text-base">{description}</p>
-  </div>
-);
-
 export default function Tokenomics() {
   const allocations = [
     { name: "Fair Launch", percentage: 60, color: "bg-primary" },

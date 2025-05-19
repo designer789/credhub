@@ -86,7 +86,7 @@ export default function Features() {
   useEffect(() => {
     // Set initial translateX based on activeIndex
     setTranslateX(-activeIndex * (100 / slidesToShow.lg));
-  }, [activeIndex]);
+  }, [activeIndex, slidesToShow.lg]);
   
   const handlePrevious = () => {
     setActiveIndex((prev) => 
